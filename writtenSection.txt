@@ -1,28 +1,58 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
+semantic HTML is a agreed upon naming convention for the structure of a webpage. This benifits both the user and the developer. 
+For users using something such a screen reader, it allows the program to efficiently and more effectively identify the structure of the page. 
+For developers using something such a "div" tag for every element does not lead to very transparent code, and what each element should be about. 
+Using tags such as header, nav, footer, p, h1 clearly identifies an element to be the navigation section, or a paragraph. 
 
 2. What is the box model?
+The box model is a structure provided to every HTML element. It consist of margin, padding, borders and content. The aesthetics of the element 
+are manipulated using any of these properties. 
 
 3. What is the difference between IDs and Classes?
+Although they can be used for similar purposes as far as selecting a particular element, IDs are unique to each element. While an element may have
+more than one class, it can only have one ID specific to itself. 
 
 4. What does the z-index do?
+Z index is the the third dimension in addition to x and y. Can be used to adjust layering. If you wanted to have the body of your page scroll 
+under a header, you could adjust the z index so that the element is "beneath". 
 
 5. Summarize what the keyword 'this' is used for?
+Similar to how in regular speech, "this" is used to reference a particular thing. "This" in javascript is used to provide clairvoyance. In the 
+instance of similarly named propeties, to which do you refer? THIS one.  
 
 6. What is a callback?
+A callback is any function passed into another function as a parameter. 
 
 7. What is a closure?
+Similar to how a callback is a function passed into a function, a closure is a function passed out of the function. 
+The returned function has the benifit of access to the parent function scope and harboring any variables declared within it. 
 
 8. How does prototype work?
+Prototypes are "built in" properties of an object. Most often functions that are accessed using dot notation. It is possible to add additional 
+custom prototypes to objects. 
 
 9. What is MVC?
+MVC stands for Model, View and Controllers. 
+Models are used for tracking and maintaining data. 
+Views are used to display the data
+Controllers are used to manipulate the data. 
 
 10. What is the component lifecycle?
+The lifecycle of a component refers to its "existence" in relation to the DOM. The constuctor stage is where it inializes what is needed in order to 
+operate. ComponentDidMount is once the component has mounted to the DOM. Render is what will be visually rendered. There are many events in the 
+lifecycle and each one allows a developer to manipulate code at any stage as needed in the life of a component. 
 
 11. What is REST?
+Representative State Transfer. 
 
 12. Name three ways of getting data from the URL using express
+req.params - req.params.id - This would pull the id parameter of a request
+req.path - req.path - This would only give you the relative path of  URL omitting any queries or params. 
+req.cookies - req.cookies.user - This would get any cookies sent along with a request
+
+
 
 create table users (
 id serial,
@@ -30,12 +60,18 @@ name varchar(255),
 email varchar(255)
 )
 
-12. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
+13. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
 
 -Get all users:
+SELECT * FROM users
 
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+INSERT INTO users (name, email) VALUES ('Brian', 'fake@fake.com')
 
 -Update the newly created user's name to 'Bobby Boy':
+UPDATE users SET name = 'Bobby Boy' WHERE id = $1
 
 -Delete the newly updated user:
+DELETE FROM users where id = $1
+
+
