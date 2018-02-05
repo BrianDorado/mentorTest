@@ -8,17 +8,26 @@ module.exports = {
   //uncomment and finish the reverseIt function. It will take in one parameter which is a String and
   //reverse it
 
-  removeDups: function removeDups(arr) {
-    let newArr = arr.filter(function(val, ind){
-      return arr.indexOf(val) == ind
+  removeDups: (arr) => {
+    dupsRemoved = arr.filter(function (val, pos) {
+      return arr.indexOf(val) == pos
     })
-      return newArr;
+    return dupsRemoved
   },
 
   //uncomment and finish the removeDups function. It will take in one parameter which is an Array
   //remove all duplicates
 
-  titleIt: () => {
+  titleIt: (str) => {
+    let smallStr = str.toLowerCase().split(' ')
+    let capitalized = null
+    let strArray = []
+
+    for (let i = 0; i < smallStr.length; i++) {
+      capitalized = smallStr[i][0].toUpperCase() + smallStr[i].substr(1).toLowerCase()
+      strArray.push(capitalized)
+    }
+    return strArray.join(' ')
   
   },
 
@@ -33,9 +42,12 @@ module.exports = {
   //return the number of vowels in the string
 
   isPrime:(n) => {
-    for (let i = 2; i < n; i ++) {
-
-    }
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+          return false
+        }
+      }
+      return true
   },
 
   //uncomment and finish the isPrime function. It will take in one parameter which is a Number and
@@ -45,7 +57,7 @@ module.exports = {
   // var foo = 10 + '20';
   //uncomment the foo property and give your answer as its value
 
-  foo: '1020'
+  foo: '1020',
 
   //what is the outcome of the two console.logs below?
   //   var foo = "Hello";
@@ -56,6 +68,6 @@ module.exports = {
   // console.log(foo + bar);
   // uncomment the log1 and log2 properties and give your answers as their values
 
-  // log1:
-  // log2:
+  log1: "Hello World",
+  log2: "Hello", undefined
 }
